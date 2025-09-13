@@ -1,0 +1,49 @@
+.dash{
+	background: hsla(15, 35%, 74%, 1);
+
+background: linear-gradient(90deg, hsla(15, 35%, 74%, 1) 0%, hsla(27, 38%, 94%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(15, 35%, 74%, 1) 0%, hsla(27, 38%, 94%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(15, 35%, 74%, 1) 0%, hsla(27, 38%, 94%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D4B1A5", endColorstr="#F6F0EB", GradientType=1 );
+}
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6b4226 0%, #8b5a3c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(107, 66, 38, 0.25);
+        }
+    
