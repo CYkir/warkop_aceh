@@ -1,5 +1,5 @@
 ---
 deployment:
     tasks:
-    - export DEPLOYPATH=/home/gron1859/public_html/trial.grosirweb.co.id/zakir-github
+    - export DEPLOYPATH=/home/gron1859/public_html/trial.grosirweb.co.id/warkop_aceh
     - /bin/rsync -av --delete ./ $DEPLOYPATH
