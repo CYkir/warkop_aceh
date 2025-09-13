@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/gron1859/public_html/trial.grosirweb.co.id/zakir
+    - /bin/rsync -av --delete ./ $DEPLOYPATH
