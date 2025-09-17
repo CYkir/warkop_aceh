@@ -12,8 +12,13 @@
 
     <!-- Toggle Button -->
     <button id="toggleSidebar"
-      class="absolute top-1/2 -right-3 transform -translate-y-1/2 bg-white shadow-md border rounded-full w-7 h-7 flex items-center justify-center text-brown-600 hover:bg-amber-100 transition">
-      <span id="toggleIcon">&lt;</span>
+      class="absolute top-1/2 -right-3 transform -translate-y-1/2  shadow-md  rounded-full w-7 h-7 flex items-center justify-center text-brown-600 bg-white hover:bg-amber-100 transition">
+      <span id="toggleIcon" class="cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 26 26" id="pre">
+          <path fill="#493628"
+            d="M21.125 0H4.875A4.874 4.874 0 0 0 0 4.875v16.25A4.874 4.874 0 0 0 4.875 26h16.25A4.874 4.874 0 0 0 26 21.125V4.875A4.874 4.874 0 0 0 21.125 0M16 17.949a.96.96 0 0 1-.479.817a.99.99 0 0 1-.952.039L8.34 13.857c-.337-.296-.537-.494-.537-.857s.237-.575.537-.857l6.229-4.949a.99.99 0 0 1 .952.04c.29.173.479.484.479.816z" />
+        </svg>
+      </span>
     </button>
 
     <!-- Menu -->
@@ -28,13 +33,74 @@
           </svg>
           <span class="menu-text">Dashboard</span>
         </a>
-        <a href="<?= base_url('admin/konten'); ?>"
-          class="flex items-center gap-3 my-3 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" class="color-">
-            <path fill="#fff"
-              d="M6.75 3A3.75 3.75 0 0 0 3 6.75v14.5A3.75 3.75 0 0 0 6.75 25h14.5A3.75 3.75 0 0 0 25 21.25V6.75A3.75 3.75 0 0 0 21.25 3zM6 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zm2-.5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V9a.5.5 0 0 0-.5-.5zM6.75 15h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5M6 19.5a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5A.75.75 0 0 1 6 19.5m11.25-5h3c.966 0 1.75.784 1.75 1.75v3A1.75 1.75 0 0 1 20.25 21h-3a1.75 1.75 0 0 1-1.75-1.75v-3c0-.966.784-1.75 1.75-1.75M17 16.25a.25.25 0 0 1 .25-.25h3a.25.25 0 0 1 .25.25v3a.25.25 0 0 1-.25.25h-3a.25.25 0 0 1-.25-.25z" />
+        <a href="<?= base_url('admin/konten?kategori=home'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
           </svg>
-          <span class="menu-text">Manajemen Konten</span>
+          <span class="menu-text">Home</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=gallery'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+          </svg>
+          <span class="menu-text">Gallery</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=testimoni'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span class="menu-text">Testimoni</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=e-menu'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+          <span class="menu-text">E-Menu</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=contact'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          <span class="menu-text">Contact</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=story'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span class="menu-text">Story</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=edukasi'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff" d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+          </svg>
+          <span class="menu-text">Edukasi</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=experience'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span class="menu-text">Experience</span>
+        </a>
+        <a href="<?= base_url('admin/konten?kategori=about'); ?>"
+          class="flex items-center gap-3 my-1 p-3 mx-2 rounded-lg text-brown-800 hover:bg-[#AB886D] hover:text-white transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#fff"
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          <span class="menu-text">About</span>
         </a>
       </div>
       <div>
@@ -70,5 +136,7 @@ $(document).ready(function() {
         .find("svg path").attr("fill", "#fff");
     }
   });
+
+
 });
   </script>

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/css/animate.min.css') ?>" />
   <link rel="stylesheet" href="<?= base_url('assets/dist/aos.css'); ?>" />
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" />
+  <link rel="icon" href="<?= base_url('assets/img/' . $home->photo2) ?>" type="image/png">
   <title>Informasi</title>
 </head>
 

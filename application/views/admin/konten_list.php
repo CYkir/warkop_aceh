@@ -25,10 +25,11 @@
       <div class="flex sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
         <!-- Tombol Tambah -->
         <div class="col-12 col-md-auto mb-3 mb-md-0">
-          <a href="<?php echo base_url('admin/create') ?>"
-            class="bg-[#493628] rounded-lg py-3 px-4 text-white text-md">Tambah Konten</a>
+          <a id="btnTambah" href="<?php echo base_url('admin/create') ?>"
+            class="bg-[#493628] rounded-lg py-3 px-4 text-white text-md">
+            Tambah Konten
+          </a>
         </div>
-
         <!-- Filter + Search -->
         <form method="get" action="<?= base_url('admin/konten') ?>" class="flex items-center gap-3">
           <!-- Dropdown kategori -->
@@ -97,6 +98,16 @@
 
 
   <script>
+  $(document).ready(function() {
+    // Ambil kategori dari query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const kategori = urlParams.get('kategori');
+
+    if (kategori) {
+      // Ubah link tombol tambah sesuai kategori aktif
+      $("#btnTambah").attr("href", "<?= base_url('admin/create') ?>?kategori=" + kategori);
+    }
+  });
   // Sidebar Toggle
   $("#toggleSidebar").click(function() {
     $("#sidebar").toggleClass("w-64 w-20");
@@ -104,12 +115,10 @@
     // Sembunyikan teks menu saat sidebar kecil
     $(".menu-text").toggleClass("hidden");
 
-    // Ganti icon
-    if ($("#toggleIcon").text() === "<") {
-      $("#toggleIcon").text(">");
-    } else {
-      $("#toggleIcon").text("<");
-    }
+    // Putar icon
+    $("#toggleIcon").toggleClass("rotate-180");
+
+
   });
   </script>
 </body>

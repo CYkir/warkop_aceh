@@ -9,15 +9,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *  @property CI_URI $uri
  * @property CI_Pagination $pagination
  */
-	class Admin extends  CI_Controller {
-		public function __construct()
-		{
+class Admin extends  CI_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
-			if(!$this->session->userdata('logged_in')){
-				redirect('auth/login');
-			}
-			$this->load->model('konten_model');
+		if (!$this->session->userdata('logged_in')) {
+			redirect('auth/login');
 		}
+		$this->load->model('konten_model');
+	}
 
 	public function konten()
 	{
@@ -85,13 +86,77 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		$this->load->view('admin/konten_list', $data);
 	}
 
-	public function dashboard(){
-		$this->load->view('admin/dashboard');
+	public function dashboard()
+	{
+		$kategori_list = [
+			'home' => 'Home',
+			'gallery' => 'Gallery',
+			'testimoni' => 'Testimoni',
+			'e-menu' => 'E-Menu',
+			'contact' => 'Contact',
+			'story' => 'Story',
+			'edukasi' => 'Edukasi',
+			'experience' => 'Experience',
+			'about' => 'About'
+		];
+
+		$statistik = [];
+		foreach ($kategori_list as $key => $label) {
+			$statistik[$key] = [
+				'label' => $label,
+				'jumlah' => $this->konten_model->count_filtered($key)
+			];
+		}
+
+		$data['statistik'] = $statistik;
+		$this->load->view('admin/dashboard', $data);
 	}
+
+
 
 	public function create()
 	{
-		$this->load->view('admin/konten_form');
+		// Ambil kategori dari query string
+		$kategori = $this->input->get('kategori');
+
+		// Default view kalau kategori tidak dikenali
+		$view = 'admin/konten_form';
+
+		// Tentukan form view sesuai kategori
+		switch ($kategori) {
+			case 'home':
+				$view = 'admin/form/home_form';
+				break;
+			case 'gallery':
+				$view = 'admin/form/gallery_form';
+				break;
+			case 'testimoni':
+				$view = 'admin/form/testimoni_form';
+				break;
+			case 'e-menu':
+				$view = 'admin/form/emenu_form';
+				break;
+			case 'contact':
+				$view = 'admin/form/contact_form';
+				break;
+			case 'story':
+				$view = 'admin/form/story_form';
+				break;
+			case 'edukasi':
+				$view = 'admin/form/edukasi_form';
+				break;
+			case 'experience':
+				$view = 'admin/form/experience_form';
+				break;
+			case 'about':
+				$view = 'admin/form/about_form';
+				break;
+		}
+
+		// Kirim data kategori ke view biar bisa diset otomatis hidden input
+		$data['kategori'] = $kategori;
+
+		$this->load->view($view, $data);
 	}
 	public function create_action()
 	{
@@ -186,16 +251,51 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		return null;
 	}
 
-
 	public function edit($id)
 	{
-		if ($this->input->post()) {
-			$this->konten_model->update($id, $this->input->post());
-			redirect('admin/konten');
-		}
 		$data['konten'] = $this->konten_model->get_by_id($id);
-		$this->load->view('admin/konten_edit', $data);
+
+		if (!$data['konten']) {
+			show_404();
+		}
+
+		// Tentukan form view sesuai kategori
+		switch ($data['konten']->kategori) {
+			case 'home':
+				$view = 'admin/form_edit/home_edit';
+				break;
+			case 'gallery':
+				$view = 'admin/form_edit/gallery_edit';
+				break;
+			case 'testimoni':
+				$view = 'admin/form_edit/testimoni_edit';
+				break;
+			case 'e-menu':
+				$view = 'admin/form_edit/emenu_edit';
+				break;
+			case 'contact':
+				$view = 'admin/form_edit/contact_edit';
+				break;
+			case 'story':
+				$view = 'admin/form_edit/story_edit';
+				break;
+			case 'edukasi':
+				$view = 'admin/form_edit/edukasi_edit';
+				break;
+			case 'experience':
+				$view = 'admin/form_edit/experience_edit';
+				break;
+			case 'about':
+				$view = 'admin/form_edit/about_edit';
+				break;
+			default:
+				show_404();
+		}
+
+		$this->load->view($view, $data);
 	}
+
+
 	public function update_action($id)
 	{
 		$id_user = $this->session->userdata('id_user');
@@ -234,7 +334,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		) {
 
 			$this->session->set_flashdata('error', '❌ Upload gagal! Pastikan file gambar sesuai (jpg/png/gif) dan ukuran < 2MB.');
-			redirect('admin/edit/' . $id);
+			redirect('admin/konten?kategori=' . $konten->kategori);
 			return;
 		}
 
@@ -261,7 +361,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		);
 
 		$this->konten_model->update($id, $data);
-		redirect('admin/konten');
+		redirect('admin/konten?kategori=' . $kategori);
 	}
 
 
@@ -270,4 +370,4 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		$this->konten_model->delete($id);
 		redirect('admin/konten');
 	}
-	}
+}

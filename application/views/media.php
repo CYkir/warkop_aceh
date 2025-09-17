@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<?= base_url('assets/img/' . $home->photo2) ?>" type="image/png">
   <title>Media</title>
   <link rel="stylesheet" href="<?= base_url('assets/src/output.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/animate.min.css') ?>" />

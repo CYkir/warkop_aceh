@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<?= base_url('assets/img/' . $home->photo2) ?>" type="image/png">
   <title>Beranda</title>
   <link rel="stylesheet" href="<?= base_url('assets/src/output.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/animate.min.css') ?>" />css" />
@@ -14,6 +15,8 @@
 </head>
 
 <body>
+
+
   <!-- Navbar -->
   <?= require 'includes/navbar.php'; ?>
   <!-- Hero Section desktop -->
@@ -301,101 +304,128 @@
 
       </div>
     </div>
-    <div class="absolute left-0 right-0 -bottom-[80px] z-10">
+    <div class="absolute left-0 right-0 -bottom-[120px] z-10">
       <img src="<?= base_url('assets/img/' . $about->hero_image) ?>" alt="background bawah"
         class="w-full object-cover " />
     </div>
   </section>
 
-  <section class="bg-white/30 backdrop-blur-3xl rounded-3xl  py-20 w-full">
-    <div class="pt-[200px] rounded-3xl  "></div>
-    <div id="kontak"
-      class=" mx-auto grid  md:grid-cols-2 gap-10 items-start p-6 bg-white shadow-2xl md:w-[80%] rounded-3xl   ">
-      <!-- Info Kontak -->
-      <div data-aos="fade-up" class="mx-4">
-        <h2 class="text-4xl font-bold text-[#442010] font-poppins mb-4">
-          <?= field_lang($contact, 'judul') ?>
-        </h2>
-        <p class="text-lg text-[#5a4632] mb-8">
-          <?= field_lang($contact, 'deskripsi_singkat') ?>
-        </p>
+  <section class="bg-white  backdrop-blur-3xl rounded-3xl   py-20 w-full" id="kontak">
+    <div class="pt-[200px]  hidden md:block  "></div>
+    <div class="pt-[60px] bg-[#F4F0F1]   backdrop-blur-2xl block md:hidden "></div>
+    <div class="relative w-full">
 
-        <div class="space-y-6 text-[#5a4632]">
-          <div class="flex items-center gap-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#d6a97c]" fill="currentColor"
-              viewBox="0 0 24 24">
-              <path d="M20 4H4a2 2 0 0 0-2 2v1.5l10 5.5l10-5.5V6a2 2 0 0 0-2-2z" />
-              <path d="M22 8.5l-10 5.5l-10-5.5V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z" />
-            </svg>
-            <span>kopi@canduwarkop.com</span>
-          </div>
-          <div class="flex items-start gap-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#d6a97c]" fill="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
-            </svg>
-            <span>Jl. T. Amir Hamzah No.216, Helvetia Tim., Kec. Medan Helvetia, Kota Medan, Sumatera Utara 20211</span>
-          </div>
-          <div class="flex items-center gap-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#d6a97c]" fill="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.21 2.2z" />
-            </svg>
-            <span>0811 6301 221</span>
-          </div>
-        </div>
-        <div class="mt-5 mx-auto">
-          <iframe class="rounded-4xl shadow-xl mx-auto w-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31856.18278940466!2d98.6160820723797!3d3.5822262012233304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fc5a4a82555%3A0xf906589bfe05f3c7!2sCandu%20Kuphi%20Helvetia!5e0!3m2!1sen!2sid!4v1757566662369!5m2!1sen!2sid"
-            height="300" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      <div id="gambar" class="absolute inset-0">
+        <img src="<?= base_url('assets/img/testing/tes.jpg') ?>" alt=""
+          class="w-[80%] mx-auto h-full object-cover rounded-3xl">
       </div>
 
-      <!-- Form Kontak -->
-      <div data-aos="fade-up" class="mt-[40px] ">
-        <form action="#" method="POST" class="bg-white w-full shadow-lg rounded-2xl p-8 space-y-6">
-          <div>
-            <label class="block text-[#442010] font-medium mb-2">
-              <?= $this->lang->line('form_name'); ?>
-            </label>
-            <input type="text" name="name"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
-              required>
-          </div>
-          <div>
-            <label class="block text-[#442010] font-medium mb-2">
-              <?= $this->lang->line('form_email'); ?>
-            </label>
-            <input type="email" name="email"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
-              required>
-          </div>
-          <div>
-            <label class="block text-[#442010] font-medium mb-2">
-              <?= $this->lang->line('form_subject'); ?>
-            </label>
-            <input type="text" name="subject"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
-              required>
-          </div>
-          <div>
-            <label class="block text-[#442010] font-medium mb-2">
-              <?= $this->lang->line('form_message'); ?>
-            </label>
-            <textarea name="message" rows="4"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
-              required></textarea>
-          </div>
-          <button type="submit"
-            class="w-full bg-[#442010] hover:bg-[#5a2e16] text-white font-semibold py-3 rounded-xl transition duration-300 cursor-pointer">
-            <?= $this->lang->line('form_send'); ?>
-          </button>
-        </form>
-      </div>
+      <!-- Overlay hitam transparan biar teks jelas -->
+      <div class="absolute inset-0  rounded-3xl"></div>
 
+      <div
+        class="relative z-10 mx-auto grid  md:grid-cols-2 gap-10 items-start p-5 md:p-[80px] bg-white/40 backdrop-blur-md shadow-2xl md:w-[80%] rounded-3xl    ">
+        <!-- Info Kontak -->
+        <div data-aos="fade-up" class="mx-4 text-center md:text-start">
+          <h2 class="text-4xl font-bold text-[#442010] font-poppins mb-4">
+            <?= field_lang($contact, 'judul') ?>
+          </h2>
+          <p class="text-lg text-[#5a4632] mb-8">
+            <?= field_lang($contact, 'deskripsi_singkat') ?>
+          </p>
+          <div class="space-y-10 mb-10 ">
+            <div class=" mx-auto">
+              <ul class="flex justify-center md:justify-start space-x-4 ">
+                <li><a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                      <g fill="none">
+                        <rect width="17" height="17" x="3.5" y="3.5" stroke="#442010" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="1.5" rx="5.5" />
+                        <circle cx="12" cy="12" r="3.606" stroke="#442010" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="1.5" />
+                        <circle cx="16.894" cy="7.106" r="1.03" fill="#442010" />
+                      </g>
+                    </svg>
+                  </a></li>
+                <li><a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                      <g fill="none" fill-rule="evenodd">
+                        <path
+                          d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                        <path fill="#442010"
+                          d="M4 12a8 8 0 1 1 9 7.938V14h2a1 1 0 1 0 0-2h-2v-2a1 1 0 0 1 1-1h.5a1 1 0 1 0 0-2H14a3 3 0 0 0-3 3v2H9a1 1 0 1 0 0 2h2v5.938A8 8 0 0 1 4 12m8 10c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10" />
+                      </g>
+                    </svg>
+                  </a></li>
+                <li><a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                      <g fill="none" stroke="#442010" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="m7 17l4.194-4.193M17 7l-4.193 4.194m0 0L9.777 7H7l4.194 5.807m1.612-1.614L17 17h-2.778l-3.028-4.193" />
+                        <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10Z" />
+                      </g>
+                    </svg>
+                  </a></li>
+                <li><a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
+                      <path fill="#442010" fill-rule="evenodd"
+                        d="M414.73 97.1A222.14 222.14 0 0 0 256.94 32C134 32 33.92 131.58 33.87 254a220.6 220.6 0 0 0 29.78 111L32 480l118.25-30.87a223.6 223.6 0 0 0 106.6 27h.09c122.93 0 223-99.59 223.06-222A220.18 220.18 0 0 0 414.73 97.1M256.94 438.66h-.08a185.75 185.75 0 0 1-94.36-25.72l-6.77-4l-70.17 18.32l18.73-68.09l-4.41-7A183.46 183.46 0 0 1 71.53 254c0-101.73 83.21-184.5 185.48-184.5a185 185 0 0 1 185.33 184.64c-.04 101.74-83.21 184.52-185.4 184.52m101.69-138.19c-5.57-2.78-33-16.2-38.08-18.05s-8.83-2.78-12.54 2.78s-14.4 18-17.65 21.75s-6.5 4.16-12.07 1.38s-23.54-8.63-44.83-27.53c-16.57-14.71-27.75-32.87-31-38.42s-.35-8.56 2.44-11.32c2.51-2.49 5.57-6.48 8.36-9.72s3.72-5.56 5.57-9.26s.93-6.94-.46-9.71s-12.54-30.08-17.18-41.19c-4.53-10.82-9.12-9.35-12.54-9.52c-3.25-.16-7-.2-10.69-.2a20.53 20.53 0 0 0-14.86 6.94c-5.11 5.56-19.51 19-19.51 46.28s20 53.68 22.76 57.38s39.3 59.73 95.21 83.76a323 323 0 0 0 31.78 11.68c13.35 4.22 25.5 3.63 35.1 2.2c10.71-1.59 33-13.42 37.63-26.38s4.64-24.06 3.25-26.37s-5.11-3.71-10.69-6.48" />
+                    </svg>
+                  </a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-5 mx-auto  ">
+            <iframe class="rounded-4xl shadow-xl mx-auto w-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31856.18278940466!2d98.6160820723797!3d3.5822262012233304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fc5a4a82555%3A0xf906589bfe05f3c7!2sCandu%20Kuphi%20Helvetia!5e0!3m2!1sen!2sid!4v1757566662369!5m2!1sen!2sid"
+              height="300" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Form Kontak -->
+        <div data-aos="fade-up" class="mt-[40px] ">
+          <form action="#" method="POST" class="bg-white/80 w-full shadow-lg rounded-2xl p-8 space-y-6">
+            <div>
+              <label class="block text-[#442010] font-medium mb-2">
+                <?= $this->lang->line('form_name'); ?>
+              </label>
+              <input type="text" name="name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
+                required>
+            </div>
+            <div>
+              <label class="block text-[#442010] font-medium mb-2">
+                <?= $this->lang->line('form_email'); ?>
+              </label>
+              <input type="email" name="email"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
+                required>
+            </div>
+            <div>
+              <label class="block text-[#442010] font-medium mb-2">
+                <?= $this->lang->line('form_subject'); ?>
+              </label>
+              <input type="text" name="subject"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
+                required>
+            </div>
+            <div>
+              <label class="block text-[#442010] font-medium mb-2">
+                <?= $this->lang->line('form_message'); ?>
+              </label>
+              <textarea name="message" rows="4"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6a97c]"
+                required></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-[#442010] hover:bg-[#5a2e16] text-white font-semibold py-3 rounded-xl transition duration-300 cursor-pointer">
+              <?= $this->lang->line('form_send'); ?>
+            </button>
+          </form>
+        </div>
+
+      </div>
     </div>
 
   </section>
