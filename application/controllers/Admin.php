@@ -367,7 +367,16 @@ class Admin extends  CI_Controller
 
 	public function delete($id)
 	{
+		$konten = $this->konten_model->get_by_id($id);
+
+		if (!$konten) {
+			$this->session->set_flashdata('error', 'Data tidak ditemukan!');
+			redirect('admin/konten');
+			return;
+		}
 		$this->konten_model->delete($id);
-		redirect('admin/konten');
+
+		// redirect balik ke list sesuai kategori
+		redirect('admin/konten?kategori=' . $konten->kategori);
 	}
 }
